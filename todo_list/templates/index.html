@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>To-Do List</title>
+</head>
+<body>
+<hr><h1>To-Do List</h1><hr>
+    <div class="task-form">
+        <h1>Add Task</h1>
+        <form method="POST" action="/add_task">
+            <input type="text" name="title" placeholder="Title" required>
+            <input type="text" name="description" placeholder="Description" required>
+            <input type="date" name="start_date" required>
+            <input type="date" name="due_date" required>
+            <select name="priority" required>
+                <option value="Low">Low</option>
+                <option value="Medium">Medium</option>
+                <option value="High">High</option>
+            </select>
+            <input type="text" name="duration" placeholder="Duration (e.g., 2 hours)" required>
+            <select name="status" required>
+                <option value="Incomplete">Incomplete</option>
+                <option value="Complete">Complete</option>
+            </select>
+            <button type="submit">Add</button>
+        </form>
+    </div>
+<br>
+    <hr>
+    <div class="task-list">
+        <h1>Task List</h1>
+        <ul>
+            {% for task in tasks %}
+            <li>
+                <u><strong>{{ task.title }}:-</strong></u>&nbsp;&nbsp;
+                <p><b>Description:</b>{{ task.description }}</p>&nbsp;
+                <p><b>Start Date:</b> {{ task.start_date }}</p>&nbsp;&nbsp;
+                <p><b>Due Date:</b> {{ task.due_date }}</p>&nbsp; &nbsp;
+                <p><b>Priority:</b> {{ task.priority }}</p>&nbsp;&nbsp;
+                <p><b>Duration:</b> {{ task.duration }}</p>&nbsp;&nbsp;
+                <p><b>Status:</b> {{ task.status }}</p>&nbsp;&nbsp; &nbsp;
+
+                </form><br> <form method="POST" action="/delete_task/{{ task.id }}">
+                    <button type="submit">Delete</button>&nbsp; &nbsp; &nbsp;
+                </form><hr>
+            </li><br>
+            {% endfor %}
+        </ul>
+    </div><hr>
+    <div class="download-link">
+        <a href="/download">Download Task Details</a>
+    </div><hr>
+</body>
+</html>

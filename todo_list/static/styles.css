@@ -1,0 +1,59 @@
+/* Set the background color for the entire page */
+body {
+    background-color: grey; /* Change this to the color you prefer */
+}
+
+/* Style the container div */
+.task-form,
+.task-list,
+.download-link {
+    background-color: #ffffff; /* Change this to the color you prefer */
+    padding: 20px;
+    margin: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+h1 {
+    text-align: center;
+
+}
+
+.task-form {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.task-list {
+    max-width: 1430px;
+    margin: 0 auto;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+button {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #cc0000;
+
+}
